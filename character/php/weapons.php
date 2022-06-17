@@ -41,43 +41,27 @@
 
 
 
-function getRandomWeapons($luckyWeaponNumber)
-{
-    //cast to int
-    //unneccesary with php, but good practice
-    $luckyWeapon = (int)$luckyWeaponNumber;
-
-    $weaponsArray = array();
-
-    for($i = 0; $i <= 27; ++$i)
+    function getRandomWeapons()
     {
-        if($i != $luckyWeapon)
+       
+        $weaponsArray = array(3, 4, 5, 6, 7, 9, 10, 13, 14, 16, 17, 19, 20, 22, 23, 24, 25, 26);
+    
+        //shuffle $weaponsArray
+        shuffle($weaponsArray); 
+    
+        $numberOfWeapons = rand (2, 5);
+    
+        $weaponsHas = array();
+        array_push($weaponsHas, 18);
+    
+        for($j = 0; $j < $numberOfWeapons; ++$j)
         {
-            array_push($weaponsArray, $i);
-        }
-    }
-
-    //shuffle $weaponsArray
-    shuffle($weaponsArray); 
-
-    $numberOfWeapons = rand (2, 6);
-
-    $weaponsHas = array();
-
-    array_push($weaponsHas, $luckyWeapon);
-
-    for($j = 0; $j < $numberOfWeapons; ++$j)
-    {
-        $weapon = $weaponsArray[$j];
-        
-        if($weapon !== $luckyWeapon)
-        {
+            $weapon = $weaponsArray[$j];
             array_push($weaponsHas, $weapon);
         }
+    
+        return $weaponsHas;
     }
-
-    return $weaponsHas;
-}
 
 
 

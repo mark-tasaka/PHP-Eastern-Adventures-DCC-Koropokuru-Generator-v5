@@ -8,7 +8,7 @@ function getLanguages($intMod, $luckMod, $luckySign, $alignment, $intelligence)
         $languages = array();
         array_push($languages, 'Common');
 
-        $languagesAvailable = array("Amabie","Ashinaga-tenaga", "Bakemono", "Hibagon", "Hitotsume-kozō", "Inugami", "Kappa", "Karura", "Kitsune", "Komainu", "Koropokuru", "Mikoshi-nyūdō ", "Mizuchi", "Mujina", "Namahage", "Nekomata", "Ningyo", "Nue", "Ogre-magi", "Oni", "Onihitokuchi", "Onikuma", "Ryuu", "Shojo", "Tengu");
+        $languagesAvailable = array("Amabie", "Bakemono", "Hibagon", "Inugami", "Kappa", "Karura", "Kitsune", "Komainu", "Kuda-gitsune", "Mikoshi-nyūdō ", "Mizuchi", "Mujina", "Namahage", "Nekomata", "Ningyo", "Nure-onna", "Ogre-magi", "Oni", "Onikuma", "Shojo", "Tengu");
 
         $alignmentTongue = "Alignment Tongue (" . $alignment . ")";
 
@@ -26,6 +26,8 @@ function getLanguages($intMod, $luckMod, $luckySign, $alignment, $intelligence)
         {
             $bonusLanguages += $luckMod;
         }
+
+        array_push($languages, "Koropokuru");
 
         for($i = 0; $i < $bonusLanguages; $i++)
         {

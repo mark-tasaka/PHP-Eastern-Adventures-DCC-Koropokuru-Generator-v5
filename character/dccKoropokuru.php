@@ -97,17 +97,7 @@
     
         }
 
-        if(isset($_POST['theEasternTitle']) && $_POST['theEasternTitle'] == 1) 
-        {
-            $title = titleEastern($level, $gender);
-        }
-        else
-        {
-            $title = title($level, $alignment);
-        } 
-
-        
-
+        $title = title($level, $alignment);
         
         $xpNextLevel = getXPNextLevel ($level);
         
@@ -297,7 +287,7 @@
        $speed -= $speedPenality;
 
        $initiative = getInit($agilityMod, $luckMod, $luckySign[0]);
-       $initiative += $level; 
+      // $initiative += $level; 
 
 
        //Hit Points
@@ -353,7 +343,7 @@
 
        $tradeGoodsAddition = tradeGoodsAddition($profession, $trainedWeapon);
 
-       
+       /*
        if(isset($_POST["theLuckyWeapon"]))
        {
            $luckyWeaponNumberString = $_POST["theLuckyWeapon"];
@@ -361,7 +351,7 @@
 
        $luckyWeaponNumber = (int)$luckyWeaponNumberString;
        $luckyWeapon = getWeapon($luckyWeaponNumber)[0];
-
+*/
 
 
         $weaponArray = array();
@@ -371,7 +361,7 @@
     //For Random Select weapon
     if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
     {
-        $weaponArray = getRandomWeapons($luckyWeaponNumber);
+        $weaponArray = getRandomWeapons();
 
     }
     else
@@ -801,12 +791,7 @@
             ?>
             </span>
 
-            <span id="luckyWeapon">
-            <?php
-                echo $luckyWeapon;
-            ?>
-        </span>
-        
+
        
        <span id="weaponsList">
            <?php
